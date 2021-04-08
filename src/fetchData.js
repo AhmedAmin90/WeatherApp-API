@@ -21,7 +21,7 @@ export async function getData(city) {
 }
 
 
-export function changeBackGrounf(img){
+export function changeBackGround(img){
   if (dataObj['weatherDes'] === 'Snow') {
     img.src = Snow;
   } else if (dataObj['weatherDes'] === 'Clouds'){

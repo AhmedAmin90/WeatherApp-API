@@ -5,3 +5,11 @@ img {
 .hide {
   display: none;
 }
+
+.hideVis {
+  visibility: hidden;
+}
+
+.show {
+  visibility: visible;
+}

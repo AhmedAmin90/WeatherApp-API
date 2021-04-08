@@ -9,6 +9,51 @@
   <title>Weather App</title>
 </head>
 <body>
+
+  <header>
+  
+      <nav class="navbar navbar-light bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">Weather Application</a>
+      <form class="d-flex w-75 justify-content-center">
+        <p class="text-dark align-self-center fw-bold m-1">Search by city name: </p>
+        <input class="form-control w-50 m-1" id="search" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success m-1 p-1" id="searchBtn" type="submit">Search</button>
+      </form>
+  </div>
+</nav>
+    
+  </header>
+
+  <section class="container">
+    <p id="test"></p>
+    <div class="card mb-3">
+      <div class="card-header">
+        <h5 class="text-center text-primary m-1" id="city-name">Istanbul</h5>
+      </div>
+       <img  class="card-img-top" id="weather-img">
+   <div class="card-body">
+    <h5 class="card-title">Card title</h5>
+    <table class="table table-primary">
+       <thead>
+     <tr>
+      <th scope="col"></th>
+      <th scope="col">Temperature</th>
+      <th scope="col">Feels Like</th>
+      <th scope="col">humidity</th>
+      </tr>
+      <tr>
+      <th scope="row"></th>
+      <td id="temp-degree"></td>
+      <td id="feel-like"></td>
+      <td id="humidity"></td>
+    </tr>
+  </thead>
+  </table>
+  </div>
+</div>
+
+  </section>
   
   <script src="main.js"></script>
 </body>

@@ -1,4 +1,3 @@
-// import defaultDisplay from './index';
 import Snow from './img/snow.jpg';
 import Sun from './img/sun.jpg';
 import Rain from './img/rain.jpg';
@@ -19,7 +18,7 @@ export async function getData(city) {
 }
 
 
-export function changeBackGround(img) {
+export const changeBackGround = (img) => {
   if (dataObj.weatherDes === 'Snow') {
     img.src = Snow;
   } else if (dataObj.weatherDes === 'Clouds') {
@@ -31,4 +30,4 @@ export function changeBackGround(img) {
   } else {
     img.src = Else;
   }
-}
+};

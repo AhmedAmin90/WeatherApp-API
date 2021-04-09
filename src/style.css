@@ -1,0 +1,15 @@
+img {
+  height: 300px;
+}
+
+.hide {
+  display: none;
+}
+
+.hideVis {
+  visibility: hidden;
+}
+
+.show {
+  visibility: visible;
+}

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../src/style.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <title>Weather App</title>
+</head>
+<body>
+
+  <header>
+  
+      <nav class="navbar navbar-dark bg-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">Weather Application</a>
+      <form class="d-flex w-75 justify-content-center">
+        <p class="align-self-center text-light fw-bold m-1">Search by city name: </p>
+        <input class="form-control w-50 m-1" id="search" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-warning m-1 p-1" id="searchBtn" type="submit">Search</button>
+      </form>
+  </div>
+</nav>
+    
+  </header>
+
+  <section class="container mt-3">
+    <div class="card mb-3 w-50 mx-auto my-2">
+      <div class="card-header">
+        <h5 class="text-center text-primary m-1" id="city-name">Search for the City </h5>
+      </div>
+       <img  class="card-img-top" id="weather-img">
+   <div class="card-body text-center">
+    <h5 class="card-title text-center text-dark" id="weather-condition"> </h5>
+    <table class="table table-primary table-hover">
+       <thead>
+        
+     <tr>
+      <th scope="col"></th>
+      <th scope="col">Temperature</th>
+      <th scope="col">Feels Like</th>
+      <th scope="col">humidity</th>
+      </tr>
+       </thead>
+       <tbody>
+      <tr>
+      <th scope="row"></th>
+      <td id="temp-degree"></td>
+      <td id="feel-like"></td>
+      <td id="humidity"></td>
+    </tr>
+ 
+  </tbody>
+  </table>
+    <button class="btn btn-secondary" id="changeBtn"></button>
+  </div>
+</div>
+
+  </section>
+  
+  <script src="main.js"></script>
+</body>
+</html>

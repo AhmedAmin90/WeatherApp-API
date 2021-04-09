@@ -1,4 +1,4 @@
-import { getData, dataObj, changeBackGround} from './fetchData';
+import { getData, dataObj, changeBackGround } from './fetchData';
 import Else from './img/else.jpg';
 
 
@@ -16,13 +16,13 @@ const table = document.querySelector('table');
 // Main style and content:
 weatherImg.src = Else;
 table.classList.add('hide');
-changeBtn.classList.add('hideVis')
+changeBtn.classList.add('hideVis');
 
 
 // Main functions:
-function fillData(){
+function fillData() {
   // Setup the elements:
-  cityName.classList.add('text-primary')
+  cityName.classList.add('text-primary');
   cityName.classList.remove('text-danger');
   weatherCond.classList.remove('hide');
   // weatherCond.classList.add('show');
@@ -32,17 +32,17 @@ function fillData(){
   changeBtn.classList.remove('hideVis');
 
   // Add content:
-  weatherCond.innerHTML = `Weather Condition: ${dataObj['weatherDes']}`;
-  cityName.innerHTML = `City Name: ${dataObj['name']}`;
-  tempDisplay.innerHTML = `${Math.round(dataObj['temp'])} °C `;
-  feelsLike.innerHTML = dataObj['feels'];
-  humidityDisplay.innerHTML = dataObj['humidity'];
+  weatherCond.innerHTML = `Weather Condition: ${dataObj.weatherDes}`;
+  cityName.innerHTML = `City Name: ${dataObj.name}`;
+  tempDisplay.innerHTML = `${Math.round(dataObj.temp)} °C `;
+  feelsLike.innerHTML = dataObj.feels;
+  humidityDisplay.innerHTML = dataObj.humidity;
 }
 
-function errorData(){
+function errorData() {
   weatherImg.src = Else;
   cityName.innerHTML = 'Wrong City Name !';
-  cityName.classList.remove('text-primary')
+  cityName.classList.remove('text-primary');
   cityName.classList.add('text-danger');
   weatherCond.classList.add('hide');
   weatherCond.classList.remove('show');
@@ -52,26 +52,33 @@ function errorData(){
   changeBtn.classList.remove('show');
 }
 
+function changeBtnText() {
+  if (tempDisplay.innerHTML.includes('C')) {
+    tempDisplay.innerHTML = `${(dataObj.temp * (9 / 5)) + 32} °F`;
+    feelsLike.innerHTML = (dataObj.feels * (9 / 5)) + 32;
+    changeBtn.innerHTML = 'Change To Celsius';
+  } else {
+    tempDisplay.innerHTML = `${Math.round(dataObj.temp)} °C `;
+    changeBtn.innerHTML = 'Change To Fahrenheit';
+    feelsLike.innerHTML = dataObj.feels;
+  }
+}
+
+changeBtnText();
+
 // Evenets:
-searchBtn.addEventListener('click', (e)=>{
+searchBtn.addEventListener('click', (e) => {
   e.preventDefault();
   const search = document.querySelector('#search').value;
-  getData(search).then(()=>{
+  getData(search).then(() => {
     fillData();
-    changeBackGround(weatherImg)
-  }).catch(()=>{
-    errorData()
-  })
-})
+    changeBtnText();
+    changeBackGround(weatherImg);
+  }).catch(() => {
+    errorData();
+  });
+});
 
-changeBtn.addEventListener('click' ,() => {
-  if (tempDisplay.innerHTML.includes('C')) {
-    tempDisplay.innerHTML = `${dataObj['temp'] * 9 / 5 + 32} °F`;
-    feelsLike.innerHTML = dataObj['feels'] * 9 / 5 + 32;
-    changeBtn.innerHTML = 'Change To Celsius'
-  } else {
-    tempDisplay.innerHTML = `${Math.round(dataObj['temp'])} °C `;
-    changeBtn.innerHTML = 'Change To Fahrenheit';
-    feelsLike.innerHTML = dataObj['feels'];
-  }
-  })
+changeBtn.addEventListener('click', () => {
+  changeBtnText();
+});
